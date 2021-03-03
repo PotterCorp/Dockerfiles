@@ -11,5 +11,11 @@ ENV LC_ALL en_GB.UTF-8
 RUN . /etc/profile
 RUN locale
 
-RUN emerge python dev-python/pip
-RUN sudo pip install conda
+RUN emerge sudo
+RUN emerge dev-vcs/git
+
+RUN emerge python
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN sudo python get-pip.py
+
+RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
